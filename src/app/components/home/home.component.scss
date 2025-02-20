@@ -1,38 +1,57 @@
+$red: red;
+$white: white;
+$border: 1px solid rgb(245, 245, 245);
+
+
 .container-post{
-    border: 1px solid rgb(245, 245, 245);
+    border: $border;
     border-radius: 15px;
     padding: 2rem;
     box-shadow: 2px 2px 10px rgb(231, 231, 231);
     .posts-container {
-        border: 1px solid rgb(231, 231, 231);
         border-radius: 15px;
         padding: 2rem;
+
+        small {
+            font-size: 0.75rem;
+        }
+        .nickname {
+            color: $red;
+            padding-left: 0.3rem;
+            font-weight: bold;
+        }
+        .card-title {
+            color: $red;
+        }
+
+        .btn-custom{
+            color: $white;
+            background-color: $red;
+        }
 
         .avatar-user {
             width: 50px;
             height: 50px;
             border-radius: 5px;
-            background-color: red;
+            background-color: $red;
             padding: 0.1rem;
             margin-right: 1rem;
             margin-top: 0.5rem;
             text-align: center;
+            cursor: pointer;
 
             h4 {
-                color: white;
+                color: $white;
                 margin: 0;
             }
         }
         .post-content {
             h4{
-                color: red;
-            }
-            small{
-                font-size: 0.75rem;
+                color: $red;
             }
             .user-public {
                 font-size: 0.75rem;
-                color: red;
+                color: $red;
             }
         }
     }

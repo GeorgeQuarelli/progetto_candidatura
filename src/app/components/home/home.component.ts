@@ -14,6 +14,7 @@ import { User } from '../../../interfaces/user.interface';
 export class HomeComponent implements OnInit {
   posts: Post[] = [];
   users: User[] = [];
+  selectedPost: Post | null = null;
 
   constructor(private apiService: ApiService) {}
 
@@ -47,5 +48,9 @@ export class HomeComponent implements OnInit {
   getInitials(name: string): string {
     const names = name.split(' ');
     return (names[0][0] + names[1][0]).toUpperCase();
+  }
+  
+  showPostDetails(post: Post): void {
+    this.selectedPost = this.selectedPost === post ? null : post;
   }
 }

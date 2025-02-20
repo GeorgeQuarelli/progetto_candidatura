@@ -5,17 +5,34 @@
     </div>
     <div class="mt-5 posts-container">
       <div *ngIf="posts.length > 0" class="post-container">
-        <h5>Esercizio Moderato</h5>
+        <h5 class="mb-4 ps-1">Esercizio Moderato</h5>
+
+        <!-- dettaglo post -->
+        <div *ngIf="selectedPost" class="card mb-4">
+          <div class="card-body">
+            <div class="d-flex mb-2">
+              <small>Post pubblicato da: {{ getUserByPostId(selectedPost.id)?.name }} alias </small>
+              <small class="nickname">{{getUserByPostId(selectedPost.id)?.username}}</small>
+            </div>
+            <h5 class="card-title">{{ selectedPost.title }}</h5>
+            <p class="card-text">{{ selectedPost.body }}</p>
+            <button class="btn btn-custom" (click)="selectedPost = null">Chiudi</button>
+          </div>
+        </div>
+
+        <!-- lista post -->
         <div class="list-group">
-          <div *ngFor="let post of posts" class="list-group-item">
+          <div *ngFor="let post of posts | slice:0:10" class="list-group-item">
             <div class="d-flex">
               <div>
-                <div class="avatar-user d-flex justify-content-center align-items-center">
+                <div class="avatar-user d-flex justify-content-center align-items-center"
+                  (click)="showPostDetails(post)">
                   <h4>{{ getUserByPostId(post.id) ? getInitials(getUserByPostId(post.id)!.name) : '' }}</h4>
                 </div>
               </div>
               <div class="post-content">
                 <h4>{{ post.title }}</h4>
+                <p>{{ (post.body.length > 30) ? (post.body | slice:0:30) + '...' : post.body }}</p>
                 <small>Pubblicato da: <a class="user-public">{{ getUserByPostId(post.id)?.username }}</a></small>
               </div>
             </div>
