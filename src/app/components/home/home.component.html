@@ -10,13 +10,13 @@
           <div *ngFor="let post of posts" class="list-group-item">
             <div class="d-flex">
               <div>
-                <div class="avatar-user d-flex justify-content-center align-items-end">
-                  <h2>LG</h2>
+                <div class="avatar-user d-flex justify-content-center align-items-center">
+                  <h4>{{ getUserByPostId(post.id) ? getInitials(getUserByPostId(post.id)!.name) : '' }}</h4>
                 </div>
               </div>
               <div class="post-content">
                 <h4>{{ post.title }}</h4>
-                <small>Pubblicato da: <a class="user-public">Gigi</a></small>
+                <small>Pubblicato da: <a class="user-public">{{ getUserByPostId(post.id)?.username }}</a></small>
               </div>
             </div>
           </div>
