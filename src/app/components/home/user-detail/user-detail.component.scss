@@ -1,0 +1,14 @@
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.btn-custom {
+  background-color: black;
+  color: white;
+  
+  &:hover {
+    background-color: #333;
+  }
+}
+

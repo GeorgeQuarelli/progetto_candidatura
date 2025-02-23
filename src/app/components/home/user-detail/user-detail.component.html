@@ -1,0 +1,39 @@
+<!-- Modal -->
+<div class="modal" [class.show]="show" [class.d-block]="show" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Dettaglio Utente</h5>
+        <button type="button" class="btn-close" (click)="close()"></button>
+      </div>
+      
+      <div class="modal-body" *ngIf="user">
+        <div class="row">
+          <div class="col-12">
+            <h6>Informazioni Personali</h6>
+            <p><strong>Nome:</strong> {{ user.name }}</p>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Telefono:</strong> {{ user.phone }}</p>
+            <p><strong>Sito Web:</strong> {{ user.website }}</p>
+          </div>
+          
+          <div class="col-12 mt-3">
+            <h6>Indirizzo</h6>
+            <p><strong>Via:</strong> {{ user.address.street }}</p>
+            <p><strong>Città:</strong> {{ user.address.city }}</p>
+            <p><strong>CAP:</strong> {{ user.address.zipcode }}</p>
+          </div>
+          
+          <div class="col-12 mt-3">
+            <h6>Azienda</h6>
+            <p><strong>Nome:</strong> {{ user.company.name }}</p>
+            <p><strong>catchPhrase:</strong> {{ user.company.catchPhrase }}</p>
+            <p><strong>bs:</strong> {{ user.company.bs }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
