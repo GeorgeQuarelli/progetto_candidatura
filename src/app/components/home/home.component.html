@@ -39,15 +39,15 @@
               <div>
                 <div class="avatar-user d-flex justify-content-center align-items-center"
                   (click)="showPostDetails(post)">
-                  <h4>{{ getUserByPostId(post.id) ? getInitials(getUserByPostId(post.id)!.name) : '' }}</h4>
+                  <h4>{{ getUserByPostId(post.userId) ? getInitials(getUserByPostId(post.userId)!.name) : '' }}</h4>
                 </div>
               </div>
               <div class="post-content">
                 <h4>{{ post.title }}</h4>
                 <p>{{ (post.body.length > 30) ? (post.body | slice:0:30) + '...' : post.body }}</p>
                 <small>Pubblicato da: 
-                  <a class="user-public" (click)="showUserDetails(getUserByPostId(post.id)?.id!)">
-                    {{ getUserByPostId(post.id)?.username }}
+                  <a class="user-public" (click)="showUserDetails(getUserByPostId(post.userId)?.id!)">
+                    {{ getUserByPostId(post.userId)?.username }}
                   </a>
                 </small>
               </div>
